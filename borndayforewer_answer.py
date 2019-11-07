@@ -1,5 +1,18 @@
 import random
 
+correct = 0
+incorrect = 0
+
+
+def score():
+    vol = correct / 5 * 100
+    vol_2 = incorrect / 5 * 100
+    print('У вас', correct, 'правильных ответов.')
+    print('У вас', incorrect, 'неправильных ответов.')
+    print('У Вас', vol, '% правильных ответов.')
+    print('У Вас', vol_2, '% неправильных ответов.')
+
+
 again = input('Хотитет поиграть? ' 'Да / Нет ')
 while again == 'Да':
     dates = {
@@ -31,8 +44,6 @@ while again == 'Да':
                   'Курчатов')
     result_people = random.sample(names_list, 5)
 
-    correct = 0
-    incorrect = 0
     for name in result_people:
         answer = input(f'Когда родился {name}? ')
         if answer == dates.get(f'{name}'):
@@ -40,13 +51,7 @@ while again == 'Да':
         else:
             incorrect += 1
             print('Правильный ответ', dates_words.get(f'{name}'))
-    vol = correct / 5 * 100
-    vol_2 = incorrect / 5 * 100
-    print('У вас', correct, 'правильных ответов.')
-    print('У вас', incorrect, 'неправильных ответов.')
-    print('У Вас', vol, '% правильных ответов.')
-    print('У Вас', vol_2, '% неправильных ответов.')
-
-    break
+    score()
+    again = input('Хотитет поиграть? ' 'Да / Нет ')
 else:
     print('Увидимся позже :)')
