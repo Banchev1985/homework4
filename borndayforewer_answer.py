@@ -1,4 +1,5 @@
 import random
+import sys
 
 correct = 0
 incorrect = 0
@@ -48,6 +49,8 @@ while again == 'Да':
         answer = input(f'Когда родился {name}? ')
         if answer == dates.get(f'{name}'):
             correct += 1
+        elif answer == 'стоп':
+            sys.exit('Если отите начать заново, запустите программу')
         else:
             incorrect += 1
             print('Правильный ответ', dates_words.get(f'{name}'))
